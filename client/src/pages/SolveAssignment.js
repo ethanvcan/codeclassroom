@@ -11,13 +11,14 @@ const SolveAssignment = () => {
   const sampleInput = localStorage.getItem('currentAssignmentInput');
   const sampleOutput = localStorage.getItem('currentAssignmentOutput');
 
-  const { id } = useParams(); // assignment ID
+  const { id } = useParams();
   const storageKey = `assignment_${id}_student_code`;
 
   const [code, setCode] = useState(localStorage.getItem(storageKey) || '');
   const [output, setOutput] = useState('');
   const [isCorrect, setIsCorrect] = useState(false);
   const [assignment, setAssignment] = useState(null);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     const fetchAssignment = async () => {
@@ -62,7 +63,7 @@ const SolveAssignment = () => {
         headers: { Authorization: `Bearer ${token}` }
       });
 
-      alert('Submission successful!');
+      setShowSuccessModal(true);
     } catch (err) {
       console.error('Failed to submit:', err);
       alert('Failed to submit code');
@@ -97,20 +98,18 @@ const SolveAssignment = () => {
         </div>
 
         <Editor
-  height="400px"
-  defaultLanguage="python"
-  theme="vs-dark"
-  value={code}
-  onChange={(value) => setCode(value || '')}
-  options={{
-    fontSize: 14,
-    minimap: { enabled: false },
-    tabSize: 4,
-    automaticLayout: true,
-  }}
-/>
-
-
+          height="400px"
+          defaultLanguage="python"
+          theme="vs-dark"
+          value={code}
+          onChange={(value) => setCode(value || '')}
+          options={{
+            fontSize: 14,
+            minimap: { enabled: false },
+            tabSize: 4,
+            automaticLayout: true,
+          }}
+        />
 
         <div className="button-group">
           <button onClick={handleRun} className="blue-button">Run Code</button>
@@ -120,6 +119,16 @@ const SolveAssignment = () => {
         <h4>Output:</h4>
         <pre className="output-box">{output}</pre>
       </div>
+
+      {showSuccessModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>✅ Submission Successful!</h3>
+            <p>Your code has been submitted.</p>
+            <button className="modal-close" onClick={() => setShowSuccessModal(false)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
