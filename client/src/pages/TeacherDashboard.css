@@ -1,0 +1,205 @@
+.teacher-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #042545, #060630);
+    color: #ffffff;
+}
+
+.dashboard-logo {
+    width: 50px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    color: #4dc3ff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.teacher-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    margin: 30px auto;
+    text-align: center;
+  }
+  
+.create-class-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-class-input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.create-class-btn {
+    background-color: #4dd2ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.create-class-btn:hover {
+    background-color: #00c2ff;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    text-align: center;
+    color: #333;
+}
+
+.classroom-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.classroom-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.go-button {
+    display: inline-block;
+    margin-top: 12px;
+    background-color: #4dd2ff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.go-button:hover {
+    background-color: #00bfff;
+}
+
+.delete-class-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: #e63946;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.delete-class-btn:hover {
+    background: #ff4d4d;
+}
+
+.classroom-card {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 12px;
+    width: 260px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirm-btn {
+    background-color: #d9534f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.confirm-btn:hover {
+    background-color: #e17571;
+}
+
+.cancel-btn:hover {
+    background-color: #8c969f;
+}
+
+.logout-button {
+    margin-left: auto;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+  
+  .logout-button:hover {
+    background-color: #d9363e;
+  }
+  
