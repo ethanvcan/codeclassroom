@@ -15,13 +15,13 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={<h1>Welcome to the Coding Platform</h1>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
         <Route path="/student-dashboard" element={<StudentDashboard />} />
         <Route path="/classroom/:id" element={<TeacherClassroomPage />} />
         <Route path="/assignment/:id/submissions" element={<TeacherSubmissionsPage />} />
         <Route path="/solve/:id" element={<SolveAssignment />} />
-        <Route path="/" element={<HomePage />} />
+
 
 
       </Routes>

@@ -1,4 +1,3 @@
-// client/src/pages/HomePage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
@@ -10,32 +9,43 @@ const HomePage = () => {
     <div className="home-container">
       <header className="home-header">
         <img src="/logo.png" alt="Logo" className="home-logo" />
-        <h1 className="home-title">Welcome to CodeClassroom</h1>
-        <p className="home-subtitle">Empowering Teachers. Engaging Students. One Line of Code at a Time.</p>
+        <h1 className="home-title">CodeClassroom</h1>
         <div className="home-buttons">
-          <button onClick={() => navigate('/login')} className="home-btn">Login</button>
-          <button onClick={() => navigate('/signup')} className="home-btn secondary">Sign Up</button>
+          <button onClick={() => navigate('/login')}>Login</button>
+          <button onClick={() => navigate('/signup')}>Sign Up</button>
         </div>
       </header>
 
-      <section className="features">
-        <div className="feature-card fade-in">
-          <h3>🧑‍🏫 For Teachers</h3>
-          <p>Create assignments, track submissions, and manage classrooms with ease.</p>
+      <section className="hero-section">
+        <div className="hero-text">
+          <h2>Empower the next generation of coders</h2>
+          <p>CodeClassroom lets teachers assign coding problems and students solve, run, and submit code — all in one platform.</p>
         </div>
-        <div className="feature-card fade-in delay-1">
-          <h3>👩‍💻 For Students</h3>
-          <p>Write and test code directly in the browser, then submit with one click.</p>
-        </div>
-        <div className="feature-card fade-in delay-2">
-          <h3>🧠 Real-Time Feedback</h3>
-          <p>Our integrated Python runner gives instant output validation and feedback.</p>
-        </div>
+        <div className="hero-image-placeholder">[ Add Hero Image Here ]</div>
       </section>
 
-      <footer className="home-footer">
-        <p>&copy; {new Date().getFullYear()} CodeClassroom. Built with ❤️ for educators and coders.</p>
-      </footer>
+      <section className="features-section">
+        <h2>Why CodeClassroom?</h2>
+        <div className="features-grid">
+          <div className="feature-card fade-in">
+            <h3>Live Code Editor</h3>
+            <p>Write, run, and debug code directly in the browser with real-time feedback.</p>
+          </div>
+          <div className="feature-card fade-in delay-1">
+            <h3>Instant Feedback</h3>
+            <p>Run test cases and get output comparisons instantly to improve learning.</p>
+          </div>
+          <div className="feature-card fade-in delay-2">
+            <h3>Easy Classroom Management</h3>
+            <p>Teachers can create classrooms, assignments, and track submissions effortlessly.</p>
+          </div>
+        </div>
+        <div className="features-image-placeholder">[ Add Screenshot / UI Preview Here ]</div>
+      </section>
+
+      <section className="footer-section">
+        <p>&copy; {new Date().getFullYear()} CodeClassroom. Built for students and teachers.</p>
+      </section>
     </div>
   );
 };
