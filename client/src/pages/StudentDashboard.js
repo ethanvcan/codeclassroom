@@ -58,14 +58,17 @@ const StudentDashboard = () => {
       window.location.reload();
     } catch (err) {
       console.error(err);
+      toast.error('❌ Invalid class code. Please try again.');
     }
   };
+  
   const handleLogout = () => {
     window.location.href = '/login';
   };
 
   return (
     <div className="student-dashboard">
+      <ToastContainer />
       <header className="dashboard-header">
         <img src="/logo.png" alt="Logo" className="dashboard-logo"  style={{ cursor: 'default' }}/>
         <h1 className="dashboard-title" style={{ cursor: 'default' }}>CodeClassroom</h1>
