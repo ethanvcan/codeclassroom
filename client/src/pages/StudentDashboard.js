@@ -58,6 +58,7 @@ const StudentDashboard = () => {
         classroomId: joinCode,
         studentId
       });
+      toast.success('❌ Joined class! Redirecting...');
       window.location.reload();
     } catch (err) {
       console.error(err);
