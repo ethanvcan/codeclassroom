@@ -21,26 +21,18 @@ router.post('/', async (req, res) => {
   const { assignment, classroom, student, code, output } = req.body;
 
   try {
-    let existing = await Submission.findOne({ assignment, student });
+    const updatedSubmission = await Submission.findOneAndUpdate(
+      { assignment, student },               // Match student + assignment
+      { assignment, classroom, student, code, output }, // Data to set/update
+      { upsert: true, new: true }            // Create if not exists, return updated
+    );
 
-    if (existing) {
-      // Update existing submission
-      existing.code = code;
-      existing.output = output;
-      await existing.save();
-      return res.status(200).json({ message: 'Submission updated' });
-    }
-
-    // Else create new one
-    const newSubmission = new Submission({ assignment, classroom, student, code, output });
-    await newSubmission.save();
-    res.status(201).json({ message: 'Submission created' });
+    res.status(200).json(updatedSubmission);
   } catch (err) {
-    console.error('Submission error:', err);
-    res.status(500).json({ error: 'Server error' });
+    console.error(err);
+    res.status(500).send('Server error');
   }
 });
-
 
 
 
