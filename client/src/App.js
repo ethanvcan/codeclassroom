@@ -7,6 +7,7 @@ import StudentDashboard from './pages/StudentDashboard';
 import TeacherClassroomPage from './pages/TeacherClassroomPage';
 import TeacherSubmissionsPage from './pages/TeacherSubmissionsPage';
 import SolveAssignment from './pages/SolveAssignment';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/classroom/:id" element={<TeacherClassroomPage />} />
         <Route path="/assignment/:id/submissions" element={<TeacherSubmissionsPage />} />
         <Route path="/solve/:id" element={<SolveAssignment />} />
+        <Route path="/" element={<HomePage />} />
 
 
       </Routes>
