@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #042545, #060630);
+  background: linear-gradient(135deg, rgb(19, 69, 119), #0a0a3d);
 }
 
 .login-card {
@@ -65,7 +65,7 @@
 .login-title-card {
     font-size: 2rem;
     font-weight: bold;
-    color:  #3897fd;
+    color:  #0457af;
     margin-bottom: 20px;
 }
   

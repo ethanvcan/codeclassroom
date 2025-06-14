@@ -1,0 +1,29 @@
+.fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 600ms ease-in-out, transform 600ms ease-in-out;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 400ms ease-in-out, transform 400ms ease-in-out;
+  }
+  
+  .route-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  

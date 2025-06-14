@@ -19,28 +19,27 @@ const HomePage = () => {
       <section className="hero-section">
         <div className="hero-text">
           <h2>Empower the next generation of coders</h2>
-          <p>CodeClassroom lets teachers assign coding problems and students solve, run, and submit code — all in one platform.</p>
+          <p>CodeClassroom lets teachers assign coding problems and students solve, run, and submit code — all in one platform. </p>
         </div>
-        <div className="hero-image-placeholder">[ Add Hero Image Here ]</div>
+        <img src="/image2.jpg" alt="Kid Coding" className="hero-image-placeholder" />
       </section>
 
       <section className="features-section">
         <h2>Why CodeClassroom?</h2>
         <div className="features-grid">
           <div className="feature-card fade-in">
-            <h3>Live Code Editor</h3>
+            <h3>Live Code Editor &#128187;</h3>
             <p>Write, run, and debug code directly in the browser with real-time feedback.</p>
           </div>
           <div className="feature-card fade-in delay-1">
-            <h3>Instant Feedback</h3>
+            <h3>Instant Feedback ✍</h3>
             <p>Run test cases and get output comparisons instantly to improve learning.</p>
           </div>
           <div className="feature-card fade-in delay-2">
-            <h3>Easy Classroom Management</h3>
+            <h3>Easy Classroom Management 👩🏻‍🏫</h3>
             <p>Teachers can create classrooms, assignments, and track submissions effortlessly.</p>
           </div>
         </div>
-        <div className="features-image-placeholder">[ Add Screenshot / UI Preview Here ]</div>
       </section>
 
       <section className="footer-section">
