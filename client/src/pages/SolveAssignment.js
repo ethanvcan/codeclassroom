@@ -19,10 +19,12 @@ const SolveAssignment = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [assignment, setAssignment] = useState(null);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
 
   useEffect(() => {
     const fetchAssignment = async () => {
-      const res = await axios.get(`http://localhost:8000/assignments/info/${id}`);
+      const res = await axios.get(`https://codeclassroom-backend.onrender.com/assignments/info/${id}`);
       setAssignment(res.data);
     };
     fetchAssignment();
@@ -34,7 +36,7 @@ const SolveAssignment = () => {
 
   const handleRun = async () => {
     try {
-      const res = await axios.post('http://localhost:8000/run', {
+      const res = await axios.post('https://codeclassroom-backend.onrender.com/run', {
         code,
         input: sampleInput,
         expectedOutput: sampleOutput
@@ -53,7 +55,7 @@ const SolveAssignment = () => {
       const classroomId = assignment.classroomId;
       const token = localStorage.getItem('token');
 
-      await axios.post('http://localhost:8000/submissions', {
+      await axios.post('https://codeclassroom-backend.onrender.com/submissions', {
         assignment: id,
         classroom: classroomId,
         student: studentId,
@@ -64,11 +66,13 @@ const SolveAssignment = () => {
       });
 
       setShowSuccessModal(true);
+      setHasSubmitted(true); // 👈 add this
     } catch (err) {
       console.error('Failed to submit:', err);
       alert('Failed to submit code');
     }
   };
+
 
   return (
     <div className="solve-container">
@@ -113,7 +117,11 @@ const SolveAssignment = () => {
 
         <div className="button-group">
           <button onClick={handleRun} className="blue-button">Run Code</button>
-          {isCorrect && <button onClick={handleSubmit} className="submit-button">Submit</button>}
+          {isCorrect && !hasSubmitted && (
+            <button onClick={handleSubmit} className="submit-button">Submit</button>
+          )}
+
+
         </div>
 
         <h4>Output:</h4>

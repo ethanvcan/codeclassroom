@@ -18,26 +18,29 @@ router.get('/by-assignment/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  const { assignment, classroom, student, code, output } = req.body;
+
   try {
-    const { assignment, classroom, student, code, output } = req.body;
+    let existing = await Submission.findOne({ assignment, student });
 
-    console.log('Incoming submission:', req.body); // ← Add this!
+    if (existing) {
+      // Update existing submission
+      existing.code = code;
+      existing.output = output;
+      await existing.save();
+      return res.status(200).json({ message: 'Submission updated' });
+    }
 
-    const submission = new Submission({
-      assignment,
-      classroom,
-      student,
-      code,
-      output
-    });
-
-    await submission.save();
-    res.json({ message: 'Submission saved!' });
+    // Else create new one
+    const newSubmission = new Submission({ assignment, classroom, student, code, output });
+    await newSubmission.save();
+    res.status(201).json({ message: 'Submission created' });
   } catch (err) {
-    console.error('Error saving submission:', err);
-    res.status(500).json({ message: 'Server error saving submission' });
+    console.error('Submission error:', err);
+    res.status(500).json({ error: 'Server error' });
   }
 });
+
 
 
 

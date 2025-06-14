@@ -26,13 +26,13 @@ const TeacherClassroomPage = () => {
       }
 
       try {
-        const classroomRes = await axios.get(`http://localhost:8000/classrooms/${id}`);
+        const classroomRes = await axios.get(`https://codeclassroom-backend.onrender.com/classrooms/${id}`);
         setClassroomName(classroomRes.data.name);
 
-        const assignmentsRes = await axios.get(`http://localhost:8000/assignments/classroom/${id}`);
+        const assignmentsRes = await axios.get(`https://codeclassroom-backend.onrender.com/assignments/classroom/${id}`);
         setAssignments(assignmentsRes.data);
 
-        const studentsRes = await axios.get(`http://localhost:8000/classrooms/${id}/students`);
+        const studentsRes = await axios.get(`https://codeclassroom-backend.onrender.com/classrooms/${id}/students`);
         setStudents(studentsRes.data);
       } catch (err) {
         console.error('Error loading classroom page:', err);
@@ -45,12 +45,12 @@ const TeacherClassroomPage = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/assignments', {
+      await axios.post('https://codeclassroom-backend.onrender.com/assignments', {
         ...formData,
         classroomId: id
       });
       setFormData({ title: '', description: '', sampleInput: '', sampleOutput: '' });
-      const res = await axios.get(`http://localhost:8000/assignments/classroom/${id}`);
+      const res = await axios.get(`https://codeclassroom-backend.onrender.com/assignments/classroom/${id}`);
       setAssignments(res.data);
     } catch (err) {
       console.error(err);
@@ -59,8 +59,8 @@ const TeacherClassroomPage = () => {
 
   const handleKickStudent = async (studentId) => {
     try {
-      await axios.post(`http://localhost:8000/classrooms/${id}/kick`, { studentId });
-      const res = await axios.get(`http://localhost:8000/classrooms/${id}/students`);
+      await axios.post(`https://codeclassroom-backend.onrender.com/classrooms/${id}/kick`, { studentId });
+      const res = await axios.get(`https://codeclassroom-backend.onrender.com/classrooms/${id}/students`);
       setStudents(res.data);
     } catch (err) {
       console.error('Failed to remove student:', err);
@@ -124,8 +124,8 @@ const TeacherClassroomPage = () => {
                     message: `Are you sure you want to delete "${a.title}"?`,
                     action: async () => {
                       try {
-                        await axios.delete(`http://localhost:8000/assignments/${a._id}`);
-                        const updated = await axios.get(`http://localhost:8000/assignments/classroom/${id}`);
+                        await axios.delete(`https://codeclassroom-backend.onrender.com/assignments/${a._id}`);
+                        const updated = await axios.get(`https://codeclassroom-backend.onrender.com/assignments/classroom/${id}`);
                         setAssignments(updated.data);
                       } catch (err) {
                         console.error('Failed to delete assignment:', err);

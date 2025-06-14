@@ -11,7 +11,7 @@ const TeacherSubmissionsPage = () => {
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/submissions/by-assignment/${id}`);
+        const res = await axios.get(`https://codeclassroom-backend.onrender.com/submissions/by-assignment/${id}`);
         setSubmissions(res.data);
       } catch (err) {
         console.error('Error fetching submissions:', err);

@@ -18,12 +18,12 @@ const StudentDashboard = () => {
     }
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/classrooms/by-student/${studentId}`);
+        const res = await axios.get(`https://codeclassroom-backend.onrender.com/classrooms/by-student/${studentId}`);
         setClassrooms(res.data);
 
         let allAssignments = [];
         for (const classroom of res.data) {
-          const a = await axios.get(`http://localhost:8000/assignments/classroom/${classroom._id}`);
+          const a = await axios.get(`https://codeclassroom-backend.onrender.com/assignments/classroom/${classroom._id}`);
           const tagged = a.data.map((assign) => ({
             ...assign,
             classroomId: classroom._id
@@ -51,7 +51,7 @@ const StudentDashboard = () => {
   const handleJoinClass = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/classrooms/join', {
+      await axios.post('https://codeclassroom-backend.onrender.com/classrooms/join', {
         classroomId: joinCode,
         studentId
       });

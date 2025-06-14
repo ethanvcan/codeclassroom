@@ -20,7 +20,7 @@ const TeacherDashboard = () => {
 
   const fetchClassrooms = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/classrooms/by-teacher/${teacherId}`);
+      const res = await axios.get(`https://codeclassroom-backend.onrender.com/classrooms/by-teacher/${teacherId}`);
       setClassrooms(res.data);
     } catch (err) {
       console.error(err);
@@ -30,7 +30,7 @@ const TeacherDashboard = () => {
   const handleCreateClassroom = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/classrooms/create', {
+      await axios.post('https://codeclassroom-backend.onrender.com/classrooms/create', {
         name: newClassroomName,
         teacherId
       });
@@ -109,7 +109,7 @@ const TeacherDashboard = () => {
               <button
                 onClick={async () => {
                   try {
-                    await axios.delete(`http://localhost:8000/classrooms/${classToDelete._id}`);
+                    await axios.delete(`https://codeclassroom-backend.onrender.com/classrooms/${classToDelete._id}`);
                     setShowConfirmModal(false);
                     fetchClassrooms();
                   } catch (err) {
