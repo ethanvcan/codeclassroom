@@ -5,8 +5,18 @@ const submissionSchema = new mongoose.Schema({
   classroom: { type: mongoose.Schema.Types.ObjectId, ref: 'Classroom', required: true },
   student: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   code: String,
-  output: String
+  output: String,
+  grade: {
+    status: {
+      type: String,
+      enum: ['correct', 'incorrect', 'none'],
+      default: 'none'
+    },
+    feedback: {
+      type: String,
+      default: ''
+    }
+  }
 });
-
 
 module.exports = mongoose.model('Submission', submissionSchema);
