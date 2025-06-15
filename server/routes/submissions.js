@@ -47,14 +47,19 @@ router.get('/status/:studentId/:assignmentId', async (req, res) => {
   try {
     const submission = await Submission.findOne({
       student: studentId,
-      assignment: assignmentId,
+      assignment: assignmentId
     });
-    res.json({ submitted: !!submission });
+
+    res.json({
+      submitted: !!submission,
+      grade: submission?.grade || { status: 'none', feedback: '' }
+    });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ submitted: false });
+    console.error('Error checking submission status:', err);
+    res.status(500).json({ submitted: false, grade: { status: 'none', feedback: '' } });
   }
 });
+
 
 // PATCH /submissions/:id/grade
 router.patch('/:id/grade', async (req, res) => {
