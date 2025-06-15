@@ -41,6 +41,12 @@ router.post('/', async (req, res) => {
   }
 });
 
+// GET /submissions/status/:studentId/:assignmentId
+router.get('/status/:studentId/:assignmentId', async (req, res) => {
+  const { studentId, assignmentId } = req.params;
+  const submission = await Submission.findOne({ studentId, assignmentId });
+  res.json({ submitted: !!submission });
+});
 
 
 
