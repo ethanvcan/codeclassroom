@@ -56,6 +56,21 @@ router.get('/status/:studentId/:assignmentId', async (req, res) => {
   }
 });
 
+// PATCH /submissions/:id/grade
+router.patch('/:id/grade', async (req, res) => {
+  const { status, feedback } = req.body;
+  try {
+    const updated = await Submission.findByIdAndUpdate(
+      req.params.id,
+      { grade: { status, feedback } },
+      { new: true }
+    );
+    res.json({ message: 'Grade saved', submission: updated });
+  } catch (err) {
+    console.error('Error updating grade:', err);
+    res.status(500).json({ message: 'Failed to save grade' });
+  }
+});
 
 
 
