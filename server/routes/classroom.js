@@ -143,17 +143,15 @@ router.delete('/:id', async (req, res) => {
   try {
     const classroomId = req.params.id;
     await Classroom.findByIdAndDelete(classroomId);
-    // Delete submissions linked to this classroom
-    await Submission.deleteMany({ classroom: classroomId });
-
-    // Delete assignments linked to this classroom
-    await Assignment.deleteMany({ classroom: classroomId });
+    
     res.status(200).json({ message: 'Classroom deleted successfully' });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to delete classroom' });
   }
 });
+
+
 
 
 module.exports = router;
